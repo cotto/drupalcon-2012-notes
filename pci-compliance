@@ -1,0 +1,98 @@
+pci compliance, drupalcon denver 2012
+
+speaker is matt, senior dude at lullabot
+he's not a lawyer, qsa or anything official
+
+document: payment card industry data security standard ("PCI")
+
+turns out that this is highly detailed
+
+PCI affects the whole org
+
+no relation to pa-dss
+
+if you're charging, transmitting, or storing cc data, you need to undestand this.
+  even if you don't process that many cards, it matters.
+  most breaches are against small business, often (30%) from external attacks
+  cc provider is liable if you're pci-compliant
+
+there are 12 requirements (dirty dozen)
+req1: install/maintain firewall configured to protect cardholder data
+  needs to be stateful, documented
+
+req2: no default passwords or secuirty settings
+
+req3: protect stored cardholder data
+  covers what to store and what not to
+
+req4: encrypt tx o cc data over public network
+
+req5: use an anti-virus and keep it up-to-date (probably not relevant to linux)
+
+req6: develop/maint secure systems and applications (?)_
+
+req7: cc data is exposed need-to-know only
+
+req8: unique id for everyone who can get into the system
+
+req9: restrict physical access to cc data
+
+req10: track/montior all netowkr access and cc data access
+
+req11: regularly test systems and processes
+
+req12: maintain policies
+
+big idea:
+  don't store cc data if you don't really have to
+  never store pin, ccv2, full track data, etc
+  only ever display first 6 or last 4 digits of cc number
+  document everything.
+  get things from writing from vendors and service providers
+    if they're non-compliant, you're non-compliant
+  it's a continuous process
+
+you care about saq tests: saq-a, saq-c, saq-d
+  saq-a - outsource all cc processing, i.e. you don't store anything (e.g. paypal)
+    this is what you'd use when you get a token from the payment processor
+  saq-c - standard ecommerce, cc goes through your server but you don't store it
+  saq-d - "other", storing sensitive data, 225 question, full meal deal
+    avoid this one if you can.  it's expensive and time-intensive
+
+merchant levels: 1-4.
+  each merchant has slightly different reqs
+  you're at max(level_m1, level_m2, ...)
+  L1: 
+    >6m transactions (per type)
+    must be fulfilled by qsa (qualified security assesor)
+    previous data breach (ow)
+  L2: 
+    1-6m tx per type
+    mastercard says qsa must do saq
+  L3:
+    quartlerly scans
+    must complete saq
+your payment processor (acquirer) has the final say.
+
+So, there's this drupal thing.
+  you need to treat it like 100% your own code.
+  get very familiar with req6
+  need to be very familiar with your payment processing code
+  there are dragons:
+
+don't do it wrong:  
+  make sure that cc data doesn't end up in form chache
+  unencrypted cc data in the db is Very Bad (even if someone else does it)
+  don't let cc data get into the $_SESSION and end up in the db
+  session hijacking (mixed http/https)
+    securepages module poage has a good link about this
+  pci scanning bot doesn't like login form name autocomplete, real simple fix
+  general stuff (xss, sql injection, csrf)
+  subscribe to security advisories
+  
+don't freak out; have a plan
+  pcissecuritystandards.org - download/read the standard
+  read "navigating pci dss" and "glossary terms, abbreviations and acronyms"
+  next: "the prioritized approach to pursue pci dss compliance"
+  
+

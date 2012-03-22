@@ -1,0 +1,78 @@
+drupalize your data with entities
+drupalcon 2012
+
+speaker; wolfgang ziegler aka fago (entity api maintainer)
+
+big shift in d7- fields everywhere, thanks to entites
+other concept ius bundles - 
+  analogous to content types
+  taxonomy terms and vocabularies
+  users have no bundles
+
+lots of modules expose entites: commerce, og, profile2, file entity, heartbeat/message
+
+lots of moudles expose stuff that modifies existing modules
+
+entity api:
+  unified access to any data in drupal (e.g. search, vote, entity ref, rules all work on entities)
+
+entity intercation:
+  entity api is your friend
+  core defines entities, entity api extends them
+  metadata wrapper: lets you mess with metadata without caring about how it's stored
+    smart get/set with a bit of magic
+    label = human-readable value (?)
+    metadata wrapper also includes access
+  property info:
+    unified acccess to entity data, plus validation and access control
+    validation examples:
+      commerce, vbo and og (simplest, via entity metadata wrapper)
+      rules, search api (rely on entity property information)
+      microdata (annotates metadata based on property data)
+      restws, wsclient (based just on entity type)
+      entity tokens (ensures there's a token)
+      entity views (???)
+
+providing an entity type:
+  hook_entity_info()
+  specify controller class
+  implement hook_schema()
+  
+  use entity_create('type', ...) before save, etc
+
+integrating entity types
+  most of the work happens in the entity api code
+    info + crud conttroller + schema, field api, property info
+    views, rules and tokens sit on top of this
+  entities can be made exportable
+    
+profile2: good example, uses lots of features of entities
+  has own entity tpe, bundles
+  supports CRUD, field api, admin ui, views/features/tokesn etc
+  access, permissions, display and the profile form are the responsibility of the site admin
+  
+entities don't have to be db-based
+  nosql, doctrine, phpcr or remote entities, integrate random data
+  fields go into the db by default, so integrating them into a non-sql storage is tricky
+    be non-fieldable, use only properties
+  can enable entity cache module, cache entities in memcache ( http://drupal.org/project/entitycache )
+  can use search api to index remote entities (just have to deal with staleness)
+  example: google picasa entities - drupal.org/sandbox/fago/1493180
+  
+needs work:
+  there's no read-only mode
+  generate display, generated form
+  
+
+drupal 8:
+  entity api is in core
+  full crud controller in core (currently in comments, soon to be in the others)
+  will need to use entity_create('type', ...) because stdclass won't work
+    this'll also mean that you can do ->save(), ->delete(), etc
+  class Comment extends Entity { ... }
+
+
+  
+  
+  
+

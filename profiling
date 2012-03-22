@@ -1,0 +1,66 @@
+tools are well-known, approach isn't well-used
+
+this is about methodology; when you have 20-sec page loads, don't tune apc
+
+how to work on "it's slow and down all the time":
+
+what site is slow
+ * which pages
+ * anonymous only or logged-in?
+ * only a few people online or lots?
+ * is traffic bursty?
+
+the more you can find about the load pattern, the better
+
+need to define a goal to maintain focus (e.g. 800ms time to first byte, 50/50 anon/logged-in)
+
+step 0 is to validate the load times by collecting data
+
+start with firebug and the net panel, take notes
+e.g.
+  front page = 8.1 seconds, 
+  article = 4.4 seconds, 
+  gallery = 23.1 seconds, 
+  logged-in favorites = 13
+
+now, don't start by looking through the query log; there are problems that can't be detected like this
+you need to look at the big picture first, even if you "waste" time
+start: display page log, query log, memory
+  from there, make sure that query time is dominant on the page timer
+  use pt-query-digest pointed at slowlog (enable slowlog in my.cnf)
+  copy the top 4 +/- queries into a text editor for later use
+  it may help to look at multiple pages to see if one slow query appears in multiple places, ut be careful
+    cleaning up a slow query *can* take a very long time, so there's a potential rabbit hole here
+
+xhprof is pretty cool, but xdebug is much easier.  both are fine tools.  Learn one or both.
+  xhprof is designed to be installed on production servers
+
+from here, you can find a slow query.
+  often pager queries ( COUNT(*) ) are nasty.  views_light_pager helps this a lot, iff you run into this
+  adding views signatures to queries (views > settings > advanced) which tells you which view generated the problem query
+  
+for a slow view that filters by something, make sure that the something is flagged and that only flagged content is displayed
+
+make sure that drupal caches (site conf > perofrmance) are enabled
+
+webgrind does a nice job of presenting xdebug output
+
+when learning the process, zoom in on odd things, zoom back out to the overall view
+  try X
+  problem persists
+  "clearly it's not X"
+  try Y
+  ...
+
+Stay iterative and don't get distracted by anything that's not at the top of the profile
+  you'll probably find something crappy.  Ignore it anyway.
+
+browsers can be stupid.  check out varnish's log and get confortable with 
+
+apc's include_once override is a nice tool, but it's hard to make it work.  you usually end up having to back out all the way after each change
+
+innodb's log buffer size should be big (8M is too small)
+  look at how often innodb sync, but understand what you're doing.  flaky hardware can make life very unpleasant without constant syncing
+
+vmstat is your friend.  If you're swapping, vmstat will show you.  Swapping is bad.
+new relic is shiny and basically the only game of its kind in town, but it's also buggy.  
