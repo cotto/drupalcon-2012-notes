@@ -85,3 +85,14 @@ YAY; patch is rtbc!
   once it's in, PARTY!
 
 see also, denver2012.drupal.org/sprints (if you happen to be at drupalcon denver)
+
+q/a:
+Q; how do you integrate core hacking into $dayjob's workflow
+  use acquia dev desktop as dev env (or whatever.  nothing weird's needed)
+  note to self: hack something (or find solution) to quickly spin up a new drupal instance for hacking.  manual process sucks atm
+
+  xjm: I don't have ideas for drupal.  I help other people who have ideas for drupal.
+  also look for "novice" tagged issues in core
+  core initiatives hold bi-weekly meetings on irc, so jump on in
+  if you read a huge issue comment thread, post an issue summary
+  
