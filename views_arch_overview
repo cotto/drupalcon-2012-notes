@@ -89,3 +89,15 @@ views_plugin_arg_validate - what should the arg look like
 
 review:  docs, oo hierarchy, example of views_linkarea, what classes are analogous to whcih config options
 
+q1: how to use remote data
+  extend views_plugin_query, likely someone's already done it
+  entity-layer would mean duplicating data
+
+q2: what happens when hook_views_api specifies 3.0-alpha1 and you're on 3.0
+  a: idk.  check the docs.  probably something sane
+
+q3: view can have multiple handlers, but must have exactly one plugin
+  handler for dispalying data, plugin for gettting it
+
+q4: how to migrate from 6 to 7
+  d7 only has views3, need to upgrade in d6, probably need to manually rebuild
