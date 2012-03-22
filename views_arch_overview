@@ -1,0 +1,33 @@
+drupalcon 2012
+alice in wonderland of fields and entities
+karen stevenson
+
+will talk abtou lots of modules, not all are safe for production use
+best analog to entities is alice in wonderland
+
+in te beginning, the Story module.
+needed to write code if you watned to have other fields (recommended path: copy/paste code, rename, etc)
+next, flexinode, which took off way beyond expectation
+in 4.7, enter CCK with custom content ttypes and fields, all through an nice ui (well, not nice)
+when you have a hammer... (becasue everything could be a node and nodes were flexible)
+around 5, 6 custom content types went into core.  
+
+everything isn't actually a noce, but everything needs fields (users, comments, etc)
+in 7, cck is now in core and we only need the entity api (have fields in core, custom contet types, entities)
+
+
+SKIP, go to views talk
+views for developers
+bevan rudge
+
+custom code sucks.  you have to maintain it, upgrade, it'll be buggy for a while, etc
+"before you extend, can you bend?"
+the more config you know, the lesscode you need
+
+anayomy ofa view:
+top level: title, display (display: header area: area plugin) exposed filters, attachments (before)
+rows (row: entity OR field, field, ...) OR empty area (empty area: area plugin)
+pager, attachments (after) (footer area: area plugin), feed icons
+
+view3 lets you configure the eleemnt that wraps the field (v2 + semantic views)
+also does "provide default field wrapper elements" under style options
