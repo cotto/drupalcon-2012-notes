@@ -1,0 +1,27 @@
+thrown into a shark poind: surviving core development
+speaker: gabor hojtsy
+drupalcon 2012
+
+shiny handout: "I have an idea for Drupal core!"
+
+gabor is maintainer for d6 (former?), works for acquia, D8MI (mobile initiative)
+
+step 0: decide which drupal version you want to add a feature to.  d8 gets new shiny, d7 gets mostly backports and small changes, d6 is maint. only
+  d7 has a looser backporting policy than d6 did, so there's some potential for increased awesome
+  d6 needs to stay super-stable.  shiny doesn't happen there anymore, though perf improvements are welcome
+  d6 definitely gets security fixes
+  to fix a d6 issue, patch d8 first, backport to d7, backport to d6.  wheee.
+    this is good for users, but kinda sucks for hackers
+    there are no forward ports because bug fixed in version X need to stay fixed after version X
+
+step 1: Do you need it done right or now?
+  right: work on d8
+  now: hack it (yuck), use hooks, use contrib modules
+    even if your patch won't get into core, submit an issue to core anyway
+    drush make helps you with this
+
+
+
+
+
+
