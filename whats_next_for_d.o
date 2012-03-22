@@ -40,7 +40,7 @@ update on the past year:
     in addition to current people
 
 goals:
-  (sb = site builder, d = devlopers
+  (sb = site builder, d = devlopers, s  =sponsors)
 
   big goals (q2, q3)
     project ratings/reviews (for site builders)
@@ -54,11 +54,31 @@ goals:
     improved events listing on d.o (sb)
     backlink commits in issues (d)
     "follow" ux improvements (d)
+      who's following this issue?
+    better hosting page (s)
+    better marketplace (s)
+    better job board (s)
 
   community things (mid-sized project, people want but it's not on fire)
     curated docs (sb)
     better support section (sb)
     a.d.o improvements (d)
+    better case studies (s)
+    better books listing (s)
     project application process automation (d)
 
+  certain parts of d.o will be monetized
+    e.g. featured distributions, sponsored job listings
+    this doesn't mean weight-loss ads in the issue queue
+    drupal 
 
+timeline:
+  q1: bootstrap team, quick wins, set up community process
+  q2: d.o/d7 sprint, med-term wins, incorporate community improvements
+  q3: complete d.o/d7, project ratings/reviews, rework community priorities, comm. improvements
+  q4: new staff, new feature dev, comm improvements
+
+We want you.
+  drop by d.o office hours - dedicated time on irc, someone will be there, ask questions
+    see the hit list for the week
+    d.o/community-initiatives/drupalorg
