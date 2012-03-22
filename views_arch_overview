@@ -24,10 +24,43 @@ custom code sucks.  you have to maintain it, upgrade, it'll be buggy for a while
 "before you extend, can you bend?"
 the more config you know, the lesscode you need
 
-anayomy ofa view:
+anayomy ofa view: (note to reader: find diagram if possible)
 top level: title, display (display: header area: area plugin) exposed filters, attachments (before)
 rows (row: entity OR field, field, ...) OR empty area (empty area: area plugin)
 pager, attachments (after) (footer area: area plugin), feed icons
 
 view3 lets you configure the eleemnt that wraps the field (v2 + semantic views)
 also does "provide default field wrapper elements" under style options
+
+other feature: field concatenation
+  "rewrite the output of this field"
+feature: render field as link
+
+and/or filters: new in views3, same as views OR but nicer
+  it's not in the ui, but you can OR together contextual filters
+  (the filters end up in the WHERE clause)
+
+result summaries/oager summaries
+  "displaying 1-7 of 7"
+  area plugin
+
+aggregate/count queries
+  prepreq is to be able to debug the sql, because it's complicated
+  also v. powerful
+  enable "use aggregation" -> "aggregation settings", "COUNT(...)"
+
+alternate pagers: date, alphabetical, glossary
+  page: pager option does this
+  ussually use a contextual filter
+
+views link area (views_linkarea contrib module)
+  exposes area plugin to add a link
+
+review: look for simple solutions, don't write custom code
+anayomy of a view, custom markup for fields, field concat, fields as custom links, no results behavior for fields and summary views.
+and/or config for filters, contextual filters, results ummaries, agg/count queries, date/etc-based pagers, link are module
+
+part 2: add new and custom feature:
+
+
+
