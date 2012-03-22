@@ -95,4 +95,14 @@ Q; how do you integrate core hacking into $dayjob's workflow
   also look for "novice" tagged issues in core
   core initiatives hold bi-weekly meetings on irc, so jump on in
   if you read a huge issue comment thread, post an issue summary
+
+Q: is there any plan to decrease the issue timeline?
+  it's hard and most people don't use the dev version, and testing sucks
+  verifying patches is a highly manual process
+  latest d6 release fixed two bugs, both of which were introduced in the previous release
+
+    
+
+
+
   
