@@ -14,7 +14,51 @@ update on the past year:
     drupal.org dev sandbox (hack on a personal version of d.o)
   plan for this year:
     "I have no idea of what I'm doing."
+    initiatives: improve d.o for site builders and developers (and sponsors too)
+    What does it mean?
+      idk
+      lots ov interviews, conversations with hackers and infrastructure folks, community voting
+  common trends:
+    there are critical things that we clearly need to do, but the initiative's stalled out.
+    community-driven initiatives aren't getting consitent attention, resulting in gnarly burnout
+      "we're a community of developers who can't change out effing website."
+    d.o's bus factor was really bad.  nobody understood the whole thing
+      some of them felt passionate, but some are sticking around out of oblication
+    d.o *needs* to be on d7, and the da needs to lead it.
+      "your own effing website doesn't use drupal 7"
+  the plan for htenext 3 months:
+    build a full-time d.o team on:
+      big scary stuff that only ythe da can do
+        d7 upgrade, project ratings
+      high-impact low-hanging fruit
+        bluecheese on g.d.o
+      reviewing/deplying community-driven initiatives
+        make a.d.o better, case studies section
+  needed: Write Everything Down
+  need to grow the team by 2013
+    e.g. devops, ux lead
+    in addition to current people
+
+goals:
+  (sb = site builder, d = devlopers
+
+  big goals (q2, q3)
+    project ratings/reviews (for site builders)
+      how do you know which module to use?  without this, you have to just know.
+    port d.o to d7 (d)
+      want to use everyday modern drupal tools on d.o,
+      make contributing to drupal via d.o eaiser
+
+  small things (weekly)
+    better case studies (sb)
+    improved events listing on d.o (sb)
+    backlink commits in issues (d)
+    "follow" ux improvements (d)
+
+  community things (mid-sized project, people want but it's not on fire)
+    curated docs (sb)
+    better support section (sb)
+    a.d.o improvements (d)
+    project application process automation (d)
 
 
-
-  
