@@ -15,13 +15,73 @@ step 0: decide which drupal version you want to add a feature to.  d8 gets new s
     there are no forward ports because bug fixed in version X need to stay fixed after version X
 
 step 1: Do you need it done right or now?
-  right: work on d8
-  now: hack it (yuck), use hooks, use contrib modules
+  need it right now: hack it (yuck), use hooks, use contrib modules
     even if your patch won't get into core, submit an issue to core anyway
     drush make helps you with this
+    you can still get some of the benefits of the oss community (review, validation), even if you don't get all of them
+  override hooks:
+    hook_menu_alter() lets you mess with routing arbitrarily
+    hook_module_implements_alter() lets you mess with how module hooks are invoked arbitrarily (?!?!)
+      using these implies some copy/pasting
+    hook_form_alter, hook_page_alter - mess with forms and page output arbitrarily
+      be careful.  internal apis might change. 
+      bigger changes imply more divergence over time
+    post a contrib module if possible
+    always be careful with these.  with great power...
+    propose d8 changes if possible
+  need it done the right way: work on d8
+    this is preferred
+    you get feedback from the community
+    help you use best practices, use the right api, use the right approach
+    easier to get fixes across different drupal version
+    it's not solely your responsibility
+    other people get to build off your changes
+    
+getting it into d8 core:
+  dont' just start an issue.  there are too many already without some differentiating feature
+  start a conversation unless it's a small/obvious fix
+  manage your patch throughout the review process
+  likely first reaction: nobody cares at all.  there are 9500 core issues
+    avg lifetimes: bug - 33 weeks, feature req - 1y24w, support - 34w, tasks - 43w
+    ow.
+  check out issue submission guidelines - d.o node 73179, issue tags on d.o node 1207020
+  there are drupal core initiatives.  there are a handful and they cover big topics.
+    core initiatives: g.d.o/drupal-initiatives
+    community initiatives: d.o/community-initiatives/drupal-core (less up-to-date, still useful)
+    working groups on g.d.o/groups
+  when working on pushing an issue forward, look at thie git history
+   get issue numbers
+   find usernames of hackers who are likely to care about the thing
+  d.o/irc explains how irc works for the drupal world
+  d.o/core-office-hours - find when someone's available (?)
+  d.o/planet - you can blog about how you're working on an initiative or what not
+    can get some feedback through this, plus blogging is generally a good idea
 
+now, everyone cares about it.  OH NOES!
+  consider all feedback and criticism
+  don't cater to everyone
+  keep the issue summary updated
+  be present and response where needed
+    this will take some serious time
+  have an overall plan with followups
+    don't let the issue get sidetracked.  see dcoc for how to deal
+  see also: d.o/dcoc (drupal code of conduct)
+  
+3 approaches to getting stuff into core:
+  d.o project sandbox
+    more flexibility, no risk of breaking core before stuff is ready
+    separate issue queue
+    CMI uses this (config mgmt initiative)
+    at merge time, most poeple haven't been patying attention, so there's ramp-up
+  structure tagging (e.g. "D8MI")
+    work directly in d.o issue queue
+  metaissues (issues that list relevant sub-issues)
+    entity initiative uses this approach
 
+YAY; patch is rtbc!
+  no guarantees that it'll get into core or not reverted
+  still need to keep an eye on it and make sure it gets into core
+  people can still complain about e.g. codingstd or perf problems
+  once it's in, PARTY!
 
-
-
-
+see also, denver2012.drupal.org/sprints (if you happen to be at drupalcon denver)
