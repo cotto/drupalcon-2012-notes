@@ -63,4 +63,4 @@ innodb's log buffer size should be big (8M is too small)
   look at how often innodb sync, but understand what you're doing.  flaky hardware can make life very unpleasant without constant syncing
 
 vmstat is your friend.  If you're swapping, vmstat will show you.  Swapping is bad.
-new relic is shiny and basically the only game of its kind in town, but it's also buggy.  
+new relic is shiny and basically the only game of its kind in town, but it's also buggy.
