@@ -60,7 +60,32 @@ review: look for simple solutions, don't write custom code
 anayomy of a view, custom markup for fields, field concat, fields as custom links, no results behavior for fields and summary views.
 and/or config for filters, contextual filters, results ummaries, agg/count queries, date/etc-based pagers, link are module
 
-part 2: add new and custom feature:
+part 2: add new and custom feature
+writing nasty custom code that'll cost us so much time and money
+docs: api.d.o/api/views/groups (topical and api)
+doxygen: drupal.geek.nz/views (updated for views 3)
 
+ususally you'll need to create something that inherits from something, so doxygen helps you there
 
+building a views module:
+step 1: hook_views_api - where are your fiels, what version of the views api are you working against
+step 2: create a subclass of the appropriate class (for linkarea, subclass views_handler_area)
+  look for an exisnting module or class that does something like what you need
+step 3: expose the class/include file to the .info file (for d7)
+step 4: expose class via hook_views_data - how the class integrates with the data schema (might need a pseudo-column)
+
+how classes relate to features in the ui
+views_handler_field - subclasses expose fields
+viewsw_handler_arg - for contextual filters
+views_handler_relationshiup - parent to clases that add relationship
+views_handler_area - stuff that goes in the header, footer and no results
+views_plugin_display - different Views displays (attachment, block, default, page, feed, etc)
+views_plugin_style - formatter otpions (html list, for, rss, ...)
+views_plugin_row  - how a row gets formamter
+v_p_pager - paging
+v_p_access - usually unneeded, nice for subclassing if needed
+vies_plugin_argument_default - when contextual filter looks somewhere other than the url for an arg
+views_plugin_arg_validate - what should the arg look like
+
+review:  docs, oo hierarchy, example of views_linkarea, what classes are analogous to whcih config options
 
